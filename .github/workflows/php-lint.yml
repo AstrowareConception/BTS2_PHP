@@ -1,0 +1,23 @@
+name: Vérification PHP
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  syntaxe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
+
+      - name: Installer PHP 8.3
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: mbstring
+          coverage: none
+
+      - name: Vérifier tous les fichiers PHP
+        run: find . -name '*.php' -not -path './vendor/*' -print0 | xargs -0 -n1 php -l
+
