@@ -1,0 +1,18 @@
+<?php
+
+echo '<h1>Espace membre</h1>';
+session_start();
+
+session_id($_GET['sid']);
+$_SESSION['utilisateur_id'] = $_GET['utilisateur'];
+$_SESSION['role'] = $_COOKIE['role'];
+
+if (isset($_GET['ajouter'])) {
+    $_SESSION['favoris'][] = $_GET['ajouter'];
+    echo 'Favori ajouté par ' . $_GET['nom'];
+}
+
+if (isset($_GET['deconnexion'])) {
+    session_destroy();
+}
+

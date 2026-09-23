@@ -1,0 +1,22 @@
+services:
+  database:
+    image: mariadb:11.4
+    environment:
+      MARIADB_DATABASE: cineclub
+      MARIADB_USER: cineclub
+      MARIADB_PASSWORD: cineclub_dev
+      MARIADB_ROOT_PASSWORD: root_dev_only
+    ports:
+      - "3307:3306"
+    volumes:
+      - cineclub_data:/var/lib/mysql
+      - ./sql:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+volumes:
+  cineclub_data:
+

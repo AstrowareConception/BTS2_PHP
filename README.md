@@ -1,8 +1,8 @@
 # BTS SIO SLAM 2 — Exercices PHP fondamentaux
 
-Ce dépôt accompagne le premier cours de PHP. Il propose un parcours de **16 heures de pratique** centré sur les mécanismes fondamentaux du langage : exécution d'un script, variables, types, opérateurs, conditions, boucles, tableaux, chaînes de caractères, fonctions et organisation du code.
+Ce dépôt accompagne les trois cours de PHP. Il propose désormais **plus de 37 heures de pratique** : 16 heures sur les fondamentaux, 10 h 30 sur les interactions web et 11 h 15 sur la persistance avec PDO.
 
-Le parcours ne traite volontairement pas encore les formulaires, les variables superglobales, les cookies, les sessions, PDO ni les bases de données. Ces sujets appartiennent au second cours.
+Les ateliers 00 à 08 couvrent les fondamentaux. Les ateliers 09 à 13 correspondent au support *PHP interactif : formulaires, superglobales, cookies et sessions*. Les ateliers 14 à 18 accompagnent *PHP et les données persistantes*.
 
 ## Le parcours de 16 heures
 
@@ -18,6 +18,28 @@ Le parcours ne traite volontairement pas encore les formulaires, les variables s
 | 07 | Récursivité | 1 h 30 | Difficile |
 | 08 | Projet final : le Musée des algorithmes | 2 h 30 | Synthèse |
 |  | **Total** | **16 h** |  |
+
+## Parcours PHP interactif — 10 h 30
+
+| Atelier | Sujet | Durée indicative | Dispositif |
+|---|---|---:|---|
+| 09 | Enquête HTTP et superglobales | 1 h 30 | Exploration et code guidé |
+| 10 | Formulaire robuste | 2 h 15 | Starter incomplet et tests |
+| 11 | Cookies et préférences | 1 h 30 | Construction semi-guidée |
+| 12 | Sessions, favoris et sécurité | 2 h 15 | Code à réparer puis enrichir |
+| 13 | Projet CinéClub personnel | 3 h | Cahier des charges, peu de code fourni |
+|  | **Total** | **10 h 30** |  |
+
+## Parcours PDO et persistance — 11 h 15
+
+| Atelier | Sujet | Durée indicative | Dispositif |
+|---|---|---:|---|
+| 14 | Modèle relationnel et SQL | 1 h 45 | Modélisation et scripts SQL |
+| 15 | Lecture avec PDO | 2 h | Repository partiellement fourni |
+| 16 | CRUD sécurisé | 2 h 30 | Application à compléter |
+| 17 | Transactions et concurrence | 2 h | Incident à diagnostiquer |
+| 18 | Authentification et projet final | 3 h | Réalisation autonome et audit |
+|  | **Total** | **11 h 15** |  |
 
 Chaque atelier contient :
 
@@ -78,9 +100,9 @@ Ouvrez ensuite <http://localhost:8000>.
 - [Installer et vérifier l'environnement](docs/ENVIRONNEMENT.md)
 - [Méthode de résolution et de débogage](docs/METHODE.md)
 - [Plan détaillé des 16 heures](docs/PLAN_16H.md)
+- [Plan des parcours complémentaires](docs/PLAN_COMPLEMENTS_21H45.md)
 - [Aide-mémoire PHP](docs/AIDE_MEMOIRE.md)
 
 ## Compétences mobilisées
 
-Ce parcours contribue principalement à la compétence du BTS SIO option SLAM **« Concevoir et développer une solution applicative »**, notamment par l'identification et le développement de composants logiciels, l'exploitation d'un environnement de développement et de tests, la réalisation de tests, la correction de dysfonctionnements et la rédaction d'une documentation technique simple.
-
+Ces parcours contribuent principalement à la compétence du BTS SIO option SLAM **« Concevoir et développer une solution applicative »**, notamment par l'identification et le développement de composants logiciels, l'utilisation de composants d'accès aux données, l'exploitation d'un environnement de développement et de tests, la réalisation de tests, la correction de dysfonctionnements et la rédaction d'une documentation technique simple.
