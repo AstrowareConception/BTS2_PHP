@@ -41,11 +41,11 @@ Les ateliers 00 à 08 couvrent les fondamentaux. Les ateliers 09 à 13 correspon
 | 18 | Authentification et projet final | 3 h | Réalisation autonome et audit |
 |  | **Total** | **11 h 15** |  |
 
-Chaque atelier contient :
+Selon le dispositif pédagogique, les ateliers proposent :
 
 - un énoncé détaillé et contextualisé ;
 - des objectifs vérifiables ;
-- un dossier `starter/` à compléter ;
+- un dossier `starter/` à compléter ou, pour les projets autonomes, seulement les données et critères de recette ;
 - des exemples d'entrées et de sorties ;
 - des tests automatisés pour les exercices qui s'y prêtent ;
 - un ou plusieurs défis facultatifs pour aller plus loin.
