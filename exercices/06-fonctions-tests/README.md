@@ -10,9 +10,78 @@ Le fichier `starter/monolithe.php` mélange nettoyage, calculs et HTML. Réorgan
 
 ## Exercice 2 — La clé ISBN-10 (35 min)
 
-L'ISBN identifie les éditions de livres. Pour les neuf premiers chiffres d'un ISBN-10, multipliez chaque chiffre par un poids descendant de 10 à 2. La clé rend la somme totale, clé pondérée par 1 comprise, divisible par 11. La valeur 10 se note `X`.
+Un ISBN-10 comporte **neuf chiffres suivis d’une clé de contrôle**. Cette clé permet de vérifier que le numéro n’a pas été mal saisi.
 
-Complétez `calculerCleIsbn10`. L'entrée contient exactement neuf chiffres, éventuellement séparés par des tirets ou des espaces. Nettoyez-la puis refusez toute autre forme avec `InvalidArgumentException`. Exemple : `0-306-40615` produit `2`.
+Complétez la fonction `calculerCleIsbn10(string $isbn): string`.
+
+### 1. Nettoyage et validation
+
+La chaîne reçue peut contenir :
+
+- exactement **neuf chiffres** ;
+- des espaces ou des tirets servant de séparateurs.
+
+Supprimez les espaces et les tirets. Après ce nettoyage, la chaîne doit contenir exactement neuf chiffres.
+
+Dans tous les autres cas, lancez une `InvalidArgumentException` : nombre incorrect de chiffres, lettre, ponctuation interdite ou chaîne vide.
+
+Exemples d’entrées valides :
+
+```text
+030640615
+0-306-40615
+0 306 40615
+```
+
+Exemples d’entrées invalides :
+
+```text
+03064061        seulement huit chiffres
+0306406157      dix chiffres
+0-306-40A15     présence d’une lettre
+0-306/40615     caractère « / » interdit
+```
+
+### 2. Calcul de la clé
+
+Multipliez les neuf chiffres par des poids décroissants allant de **10 à 2** :
+
+```text
+1er chiffre × 10
+2e chiffre × 9
+3e chiffre × 8
+...
+9e chiffre × 2
+```
+
+Additionnez les neuf résultats. La clé doit compléter cette somme afin que le total soit divisible par 11 :
+
+```text
+clé = (11 - (somme % 11)) % 11
+```
+
+Si la clé obtenue vaut `10`, retournez la chaîne `"X"`. Sinon, retournez le chiffre obtenu sous forme de chaîne.
+
+### Exemple
+
+Pour `0-306-40615`, les neuf chiffres sont :
+
+```text
+0 3 0 6 4 0 6 1 5
+```
+
+Le calcul donne :
+
+```text
+0×10 + 3×9 + 0×8 + 6×7 + 4×6 + 0×5 + 6×4 + 1×3 + 5×2
+= 130
+```
+
+Comme `130 + 2 = 132` et que `132` est divisible par 11, la fonction retourne :
+
+```text
+"2"
+```
 
 ## Exercice 3 — Concevoir les tests (35 min)
 
