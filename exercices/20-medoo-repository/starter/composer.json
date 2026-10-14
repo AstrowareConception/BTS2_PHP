@@ -14,7 +14,7 @@
     }
   },
   "scripts": {
-    "init": "php bin/init-db.php",
+    "db:init": "php bin/init-db.php",
     "test": "php tests/repository_test.php"
   },
   "config": {
