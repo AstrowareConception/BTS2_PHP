@@ -1,0 +1,23 @@
+{
+  "name": "bts-sio/atelier-medoo",
+  "description": "Repository pédagogique construit avec Medoo",
+  "type": "project",
+  "require": {
+    "php": ">=8.2",
+    "ext-pdo": "*",
+    "ext-pdo_sqlite": "*",
+    "catfan/medoo": "^2.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  },
+  "scripts": {
+    "init": "php bin/init-db.php",
+    "test": "php tests/repository_test.php"
+  },
+  "config": {
+    "sort-packages": true
+  }
+}

@@ -21,3 +21,9 @@ jobs:
       - name: Vérifier tous les fichiers PHP
         run: find . -name '*.php' -not -path './vendor/*' -print0 | xargs -0 -n1 php -l
 
+      - name: Valider les fichiers Composer
+        run: |
+          find exercices -name composer.json -print0 | while IFS= read -r -d '' file; do
+            composer --working-dir="$(dirname "$file")" validate --no-check-publish
+          done
+

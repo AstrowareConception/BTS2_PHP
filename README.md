@@ -1,8 +1,8 @@
-# BTS SIO SLAM 2 — Exercices PHP fondamentaux
+# BTS SIO SLAM 2 — Parcours complet PHP
 
-Ce dépôt accompagne les trois cours de PHP. Il propose désormais **plus de 37 heures de pratique** : 16 heures sur les fondamentaux, 10 h 30 sur les interactions web et 11 h 15 sur la persistance avec PDO.
+Ce dépôt accompagne la progression complète de PHP en deuxième année : fondamentaux, HTTP, formulaires, sessions, PDO, Composer, Medoo, Slim 4, MVC et API REST. Il propose désormais **54 heures de pratique**, dont une passerelle progressive de 16 h 15 entre le CRUD PDO et un véritable projet Slim.
 
-Les ateliers 00 à 08 couvrent les fondamentaux. Les ateliers 09 à 13 correspondent au support *PHP interactif : formulaires, superglobales, cookies et sessions*. Les ateliers 14 à 18 accompagnent *PHP et les données persistantes*.
+Les ateliers 00 à 08 couvrent les fondamentaux. Les ateliers 09 à 13 correspondent au support *PHP interactif : formulaires, superglobales, cookies et sessions*. Les ateliers 14 à 18 accompagnent *PHP et les données persistantes*. Les ateliers 19 à 25 construisent la transition vers Composer, Medoo, Slim 4, MVC et REST.
 
 ## Le parcours de 16 heures
 
@@ -40,6 +40,19 @@ Les ateliers 00 à 08 couvrent les fondamentaux. Les ateliers 09 à 13 correspon
 | 17 | Transactions et concurrence | 2 h | Incident à diagnostiquer |
 | 18 | Authentification et projet final | 3 h | Réalisation autonome et audit |
 |  | **Total** | **11 h 15** |  |
+
+## Passerelle Composer, Medoo, Slim et MVC — 16 h 15
+
+| Atelier | Sujet | Durée indicative | Dispositif |
+|---|---|---:|---|
+| 19 | Composer et autoloading PSR-4 | 1 h 15 | Manipulation guidée et diagnostic |
+| 20 | Premiers repositories avec Medoo | 1 h 45 | API à compléter et comparaison avec PDO |
+| 21 | Routage et réponses avec Slim 4 | 1 h 30 | Micro-défis HTTP indépendants |
+| 22 | Catalogue Slim + Medoo | 2 h | Application semi-guidée |
+| 23 | Séparer le code selon MVC | 2 h 15 | Refactoring d'un monolithe fourni |
+| 24 | Première API REST avec Slim | 2 h 30 | Contrat, JSON, statuts et recette `curl` |
+| 25 | Projet final : Médiathèque multi-interface | 5 h | Réalisation autonome, peu de code fourni |
+|  | **Total** | **16 h 15** |  |
 
 Selon le dispositif pédagogique, les ateliers proposent :
 
@@ -85,6 +98,8 @@ php -S localhost:8000
 
 Ouvrez ensuite <http://localhost:8000>.
 
+À partir de l'atelier 19, Composer gère les dépendances et l'autoloading. Exécutez `composer install` dans le dossier `starter/` de l'atelier concerné avant le premier lancement.
+
 ## Règles de travail
 
 1. Lire l'énoncé complet avant de coder.
@@ -101,6 +116,7 @@ Ouvrez ensuite <http://localhost:8000>.
 - [Méthode de résolution et de débogage](docs/METHODE.md)
 - [Plan détaillé des 16 heures](docs/PLAN_16H.md)
 - [Plan des parcours complémentaires](docs/PLAN_COMPLEMENTS_21H45.md)
+- [Passerelle Composer, Medoo, Slim, MVC et REST](docs/PARCOURS_SLIM_MEDOO.md)
 - [Aide-mémoire PHP](docs/AIDE_MEMOIRE.md)
 
 ## Compétences mobilisées

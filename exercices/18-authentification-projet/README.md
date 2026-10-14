@@ -1,8 +1,8 @@
-# Atelier 18 — Authentification et projet final persistant
+# Atelier 18 — Authentification et synthèse du bloc PDO
 
 **Durée : 3 heures — Support : données persistantes — Niveau : synthèse**
 
-Cette réalisation clôt les trois cours PHP. Vous devez intégrer comptes utilisateurs, sessions et base de données sans perdre les défenses construites dans les ateliers précédents. Les signatures fournies n'imposent pas toute l'architecture : vous restez responsable du flux.
+Cette réalisation clôt le bloc PHP procédural et PDO. Elle prépare la migration vers Composer, Medoo, Slim et MVC sans utiliser encore de framework. Vous devez intégrer comptes utilisateurs, sessions et base de données sans perdre les défenses construites dans les ateliers précédents. Les signatures fournies n'imposent pas toute l'architecture : vous restez responsable du flux.
 
 ## Partie 1 — Inscription (35 min)
 
@@ -54,4 +54,16 @@ Corrigez au moins les anomalies critiques ou importantes. Documentez les risques
 - expiration d'inactivité ;
 - journal d'audit des actions administratives ;
 - politique de mot de passe argumentée plutôt qu'une accumulation arbitraire de règles.
+
+## Passerelle vers la suite
+
+À la fin de l'atelier, repérez dans votre application :
+
+- le code qui choisit l'action à réaliser à partir de l'URL ;
+- le code qui accède à la base ;
+- le code qui applique les règles métier ;
+- le code qui fabrique le HTML ;
+- les répétitions de `require` et de configuration.
+
+Les ateliers 19 à 24 remplaceront progressivement ces mécanismes artisanaux par Composer, Medoo, Slim et une organisation MVC explicite.
 

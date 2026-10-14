@@ -1,0 +1,104 @@
+openapi: 3.1.0
+info:
+  title: API Médiathèque BTS SIO
+  version: 0.1.0
+  description: Contrat initial à compléter pendant le projet.
+servers:
+  - url: http://localhost:8000
+paths:
+  /api/documents:
+    get:
+      summary: Lister et rechercher les documents
+      parameters:
+        - in: query
+          name: q
+          schema:
+            type: string
+        - in: query
+          name: type
+          schema:
+            type: string
+            enum: [livre, film, jeu]
+      responses:
+        '200':
+          description: Collection de documents
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [data]
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Document'
+    post:
+      summary: Créer un document
+      responses:
+        '201':
+          description: Document créé
+        '422':
+          $ref: '#/components/responses/ValidationError'
+  /api/documents/{id}:
+    get:
+      summary: Consulter un document
+      parameters:
+        - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          description: Document trouvé
+        '404':
+          description: Document absent
+    patch:
+      summary: Modifier partiellement un document
+      parameters:
+        - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          description: Document modifié
+        '422':
+          $ref: '#/components/responses/ValidationError'
+  /api/emprunts:
+    post:
+      summary: Emprunter un document
+      responses:
+        '201':
+          description: Emprunt enregistré
+        '409':
+          description: Règle métier empêchant l'emprunt
+  /api/emprunts/{id}/retour:
+    patch:
+      summary: Enregistrer le retour
+      parameters:
+        - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          description: Retour enregistré
+components:
+  parameters:
+    Id:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        minimum: 1
+  schemas:
+    Document:
+      type: object
+      required: [id, titre, type, annee, disponible]
+      properties:
+        id:
+          type: integer
+        titre:
+          type: string
+        type:
+          type: string
+          enum: [livre, film, jeu]
+        annee:
+          type: integer
+        disponible:
+          type: boolean
+  responses:
+    ValidationError:
+      description: Données métier invalides

@@ -1,0 +1,50 @@
+### Collection
+GET http://localhost:8000/api/films
+Accept: application/json
+
+### Collection recherchée et paginée
+GET http://localhost:8000/api/films?q=alien&page=1&limite=2
+Accept: application/json
+
+### Ressource existante
+GET http://localhost:8000/api/films/1
+Accept: application/json
+
+### Ressource absente : 404
+GET http://localhost:8000/api/films/9999
+Accept: application/json
+
+### Création : 201 et en-tête Location
+POST http://localhost:8000/api/films
+Content-Type: application/json
+Accept: application/json
+
+{
+  "titre": "Metropolis",
+  "annee": 1927,
+  "note": 8.3
+}
+
+### Création invalide : 422
+POST http://localhost:8000/api/films
+Content-Type: application/json
+Accept: application/json
+
+{
+  "titre": " ",
+  "annee": 1800,
+  "note": 14
+}
+
+### Modification partielle
+PATCH http://localhost:8000/api/films/1
+Content-Type: application/json
+Accept: application/json
+
+{
+  "note": 9.1
+}
+
+### Suppression : 204 et corps vide
+DELETE http://localhost:8000/api/films/2
+Accept: application/json
