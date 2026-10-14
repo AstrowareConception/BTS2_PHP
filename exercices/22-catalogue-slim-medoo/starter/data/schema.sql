@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS film;
+
+CREATE TABLE film (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    titre TEXT NOT NULL CHECK (length(trim(titre)) BETWEEN 2 AND 120),
+    annee INTEGER NOT NULL CHECK (annee >= 1895),
+    note REAL NOT NULL CHECK (note BETWEEN 0 AND 10),
+    archive INTEGER NOT NULL DEFAULT 0 CHECK (archive IN (0, 1))
+);

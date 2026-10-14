@@ -1,0 +1,13 @@
+{
+  "name": "bts-sio/atelier-21-slim",
+  "description": "Micro-defis de routage et de reponses PSR-7 avec Slim 4",
+  "type": "project",
+  "require": {
+    "php": ">=8.2",
+    "slim/psr7": "^1.8",
+    "slim/slim": "^4.0"
+  },
+  "scripts": {
+    "start": "php -S localhost:8000 -t public"
+  }
+}

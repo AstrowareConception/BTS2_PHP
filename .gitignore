@@ -5,3 +5,7 @@ Thumbs.db
 vendor/
 .env
 **/.env
+**/*.sqlite
+**/*.sqlite-shm
+**/*.sqlite-wal
+tmp/

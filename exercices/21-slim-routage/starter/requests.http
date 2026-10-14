@@ -1,0 +1,33 @@
+### Accueil déjà fonctionnel
+GET http://localhost:8000/
+
+### Paramètre de chemin
+GET http://localhost:8000/bonjour/Ada
+
+### Addition valide
+GET http://localhost:8000/addition/12/30
+Accept: application/json
+
+### Addition invalide : doit répondre 400
+GET http://localhost:8000/addition/douze/30
+Accept: application/json
+
+### Recherche et query string
+GET http://localhost:8000/recherche?q=%20alien%20&limite=5
+Accept: application/json
+
+### Corps JSON valide : doit répondre 201
+POST http://localhost:8000/miroir
+Content-Type: application/json
+
+{
+  "message": "Bonjour Slim"
+}
+
+### Corps métier invalide : doit répondre 422
+POST http://localhost:8000/miroir
+Content-Type: application/json
+
+{
+  "message": "   "
+}

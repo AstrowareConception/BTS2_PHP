@@ -84,3 +84,49 @@ require_once __DIR__ . "/functions.php";
 
 Conservez les données brutes dans un fichier, les traitements dans un autre et l'affichage dans `index.php`.
 
+## Composer et autoloading
+
+```bash
+composer install
+composer dump-autoload
+```
+
+```php
+require __DIR__ . '/../vendor/autoload.php';
+
+use App\Domain\Film;
+```
+
+Le namespace `App\` correspond généralement au dossier `src/` grâce à la règle PSR-4 du `composer.json`.
+
+## Medoo
+
+```php
+$films = $database->select('films', ['id', 'titre'], [
+    'archive' => 0,
+    'ORDER' => ['titre' => 'ASC'],
+]);
+```
+
+Medoo simplifie les requêtes courantes, mais ne supprime ni la validation métier ni la nécessité de comprendre SQL. Pour une requête complexe, son objet PDO reste accessible.
+
+## Slim 4
+
+```php
+$app->get('/films/{id}', function ($request, $response, array $args) {
+    $response->getBody()->write('Film ' . (int) $args['id']);
+    return $response;
+});
+```
+
+Une route Slim doit toujours retourner une réponse PSR-7. Les méthodes `withHeader()` et `withStatus()` renvoient une nouvelle réponse.
+
+## JSON
+
+```php
+$payload = json_encode($data, JSON_THROW_ON_ERROR | JSON_UNESCAPED_UNICODE);
+$response->getBody()->write($payload);
+
+return $response->withHeader('Content-Type', 'application/json');
+```
+

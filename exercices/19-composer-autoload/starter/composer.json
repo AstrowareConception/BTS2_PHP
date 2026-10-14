@@ -1,0 +1,19 @@
+{
+  "name": "bts-sio/atelier-composer",
+  "description": "Atelier d'initiation à Composer et à l'autoloading PSR-4",
+  "type": "project",
+  "require": {
+    "php": ">=8.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  },
+  "scripts": {
+    "test": "php tests/autoload_test.php"
+  },
+  "config": {
+    "sort-packages": true
+  }
+}

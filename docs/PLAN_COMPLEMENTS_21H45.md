@@ -1,4 +1,4 @@
-# Parcours complémentaires — 21 h 45
+# Parcours complémentaires — 38 heures
 
 ## Principes pédagogiques
 
@@ -26,6 +26,20 @@ Les durées incluent la lecture, la conception sur papier, le développement, le
 | 17 — Transactions | 2 h | réservation atomique et expérience de concurrence |
 | 18 — Authentification | 3 h | comptes, connexion, autorisations et audit final |
 
+L'atelier 18 clôt le bloc PDO, mais il ne constitue plus la fin du parcours PHP. Il fournit le socle métier et les réflexes de sécurité réutilisés dans les ateliers Slim.
+
+## Passerelle vers le projet — Composer, Medoo, Slim et MVC (16 h 15)
+
+| Atelier | Socle | Production attendue |
+|---|---:|---|
+| 19 — Composer et PSR-4 | 1 h 15 | projet installable, classes autoloadées et diagnostic de namespaces |
+| 20 — Medoo | 1 h 45 | repository de lecture et d'écriture, comparaison argumentée avec PDO |
+| 21 — Slim 4 | 1 h 30 | routes GET/POST, paramètres, réponses HTML et JSON |
+| 22 — Slim + Medoo | 2 h | catalogue filtrable, fiche 404 et création sécurisée |
+| 23 — MVC | 2 h 15 | monolithe séparé en contrôleur, repository et vues |
+| 24 — REST | 2 h 30 | API JSON de niveau 2, statuts cohérents et recette `curl` |
+| 25 — Projet Médiathèque | 5 h | application MVC et API partageant le même métier et le même repository |
+
 ## Modalités d'utilisation
 
 - Les dossiers `starter/` contiennent uniquement ce qui sert réellement de point de départ.
@@ -33,3 +47,5 @@ Les durées incluent la lecture, la conception sur papier, le développement, le
 - Les tests publics décrivent des contrats essentiels, sans couvrir toute la recette.
 - Les étudiants doivent compléter les fichiers `COMPTE_RENDU.md` ou `RECETTE.md` lorsqu'ils sont présents.
 - Une réussite technique sans explication des choix ne suffit pas pour les ateliers d'audit et de diagnostic.
+- Les ateliers 19 à 24 restent courts et focalisés : chacun introduit une difficulté principale avant le projet autonome.
+- L'atelier 25 doit commencer seulement lorsque les routes Slim, l'injection manuelle des dépendances et le rôle du repository sont compris.
