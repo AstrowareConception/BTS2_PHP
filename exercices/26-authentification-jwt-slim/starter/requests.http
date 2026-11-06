@@ -1,0 +1,79 @@
+@base = http://localhost:8000
+@tokenAlice = COLLER_ICI_LE_JETON_ALICE
+@tokenBob = COLLER_ICI_LE_JETON_BOB
+
+### 01 - Public : 200
+GET {{base}}/api/etat
+Accept: application/json
+
+### 02 - Connexion Alice : 200 avec JWT
+POST {{base}}/api/login
+Content-Type: application/json
+Accept: application/json
+
+{"email":"alice@example.test","mot_de_passe":"BtsJwt2026!"}
+
+### 03 - Connexion Bob : recopier le jeton dans @tokenBob
+POST {{base}}/api/login
+Content-Type: application/json
+Accept: application/json
+
+{"email":"bob@example.test","mot_de_passe":"BtsJwt2026!"}
+
+### 04 - Mauvais identifiants : 401 neutre
+POST {{base}}/api/login
+Content-Type: application/json
+Accept: application/json
+
+{"email":"alice@example.test","mot_de_passe":"erreur"}
+
+### 05 - JSON mal formé : 400
+POST {{base}}/api/login
+Content-Type: application/json
+
+{"email":
+
+### 06 - Mauvais Content-Type : 415
+POST {{base}}/api/login
+Content-Type: text/plain
+
+alice@example.test
+
+### 07 - Route privée sans jeton : 401
+GET {{base}}/api/profil
+Accept: application/json
+
+### 08 - Route privée avec JWT Alice : 200
+GET {{base}}/api/profil
+Authorization: Bearer {{tokenAlice}}
+Accept: application/json
+
+### 09 - Alice consulte sa note : 200
+GET {{base}}/api/notes/1
+Authorization: Bearer {{tokenAlice}}
+Accept: application/json
+
+### 10 - Alice consulte la note de Bob : 403
+GET {{base}}/api/notes/2
+Authorization: Bearer {{tokenAlice}}
+Accept: application/json
+
+### 11 - Bob consulte sa note : 200
+GET {{base}}/api/notes/2
+Authorization: Bearer {{tokenBob}}
+Accept: application/json
+
+### 12 - Note absente : 404
+GET {{base}}/api/notes/9999
+Authorization: Bearer {{tokenAlice}}
+Accept: application/json
+
+### 13 - En-tête non Bearer : 401
+GET {{base}}/api/profil
+Authorization: Basic abc
+Accept: application/json
+
+### 14 - Défi : statistiques administrateur
+GET {{base}}/api/admin/statistiques
+Authorization: Bearer {{tokenAlice}}
+Accept: application/json

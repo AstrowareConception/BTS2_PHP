@@ -35,3 +35,8 @@ Avant l'atelier 25, l'étudiant doit savoir expliquer sans réciter :
 - [PHP-FIG — PSR-4](https://www.php-fig.org/psr/psr-4/)
 - [MDN — méthodes HTTP](https://developer.mozilla.org/fr/docs/Web/HTTP/Reference/Methods)
 - [MDN — codes de statut HTTP](https://developer.mozilla.org/fr/docs/Web/HTTP/Reference/Status)
+
+
+## Atelier complémentaire 26 — JWT et sécurisation d'une API (4 h)
+
+Après le projet 25, l'[atelier 26](../exercices/26-authentification-jwt-slim/) reprend les acquis REST et les transforme en contrôles de sécurité concrets : `POST /api/login` avec `password_verify()`, JWT signé HS256, middleware Slim 4, `Authorization: Bearer`, distinction 401/403 et contrôle de propriété d'une ressource. Il dispose de son propre starter SQLite et peut être réalisé sans avoir achevé le projet 25.

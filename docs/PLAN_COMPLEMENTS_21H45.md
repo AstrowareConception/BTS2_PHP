@@ -1,4 +1,4 @@
-# Parcours complémentaires — 38 heures
+# Parcours complémentaires — 42 heures
 
 ## Principes pédagogiques
 
@@ -40,7 +40,17 @@ L'atelier 18 clôt le bloc PDO, mais il ne constitue plus la fin du parcours PHP
 | 24 — REST | 2 h 30 | API JSON de niveau 2, statuts cohérents et recette `curl` |
 | 25 — Projet Médiathèque | 5 h | application MVC et API partageant le même métier et le même repository |
 
+
+## Complément JWT et API sécurisée (4 h)
+
+| Atelier | Socle | Production attendue |
+|---|---:|---|
+| [26 — JWT avec Slim 4](../exercices/26-authentification-jwt-slim/) | 4 h | Route de connexion, JWT signé, middleware, droits sur une note privée, recette 401/403 et audit |
+
+L'atelier est autonome, volontairement **après REST** : ne pas le présenter comme un préalable à la compréhension du routage ou de MVC.
+
 ## Modalités d'utilisation
+
 
 - Les dossiers `starter/` contiennent uniquement ce qui sert réellement de point de départ.
 - Lorsqu'un atelier précise « à créer », l'absence de squelette fait partie de l'exercice.

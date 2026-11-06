@@ -1,8 +1,8 @@
 # BTS SIO SLAM 2 — Parcours complet PHP
 
-Ce dépôt accompagne la progression complète de PHP en deuxième année : fondamentaux, HTTP, formulaires, sessions, PDO, Composer, Medoo, Slim 4, MVC et API REST. Il propose désormais **54 heures de pratique**, dont une passerelle progressive de 16 h 15 entre le CRUD PDO et un véritable projet Slim.
+Ce dépôt accompagne la progression complète de PHP en deuxième année : fondamentaux, HTTP, formulaires, sessions, PDO, Composer, Medoo, Slim 4, MVC et API REST. Il propose désormais **58 heures de pratique**, dont une passerelle progressive de 16 h 15 entre le CRUD PDO et un véritable projet Slim.
 
-Les ateliers 00 à 08 couvrent les fondamentaux. Les ateliers 09 à 13 correspondent au support *PHP interactif : formulaires, superglobales, cookies et sessions*. Les ateliers 14 à 18 accompagnent *PHP et les données persistantes*. Les ateliers 19 à 25 construisent la transition vers Composer, Medoo, Slim 4, MVC et REST.
+Les ateliers 00 à 08 couvrent les fondamentaux. Les ateliers 09 à 13 correspondent au support *PHP interactif : formulaires, superglobales, cookies et sessions*. Les ateliers 14 à 18 accompagnent *PHP et les données persistantes*. Les ateliers 19 à 25 construisent la transition vers Composer, Medoo, Slim 4, MVC et REST. L'atelier 26 complète ce parcours par la sécurisation d'une API avec JWT.
 
 ## Le parcours de 16 heures
 
@@ -63,7 +63,17 @@ Selon le dispositif pédagogique, les ateliers proposent :
 - des tests automatisés pour les exercices qui s'y prêtent ;
 - un ou plusieurs défis facultatifs pour aller plus loin.
 
+
+## Complément JWT et authentification — 4 h
+
+| Atelier | Sujet | Durée indicative | Dispositif |
+|---|---|---:|---|
+| [26](exercices/26-authentification-jwt-slim/) | Sécuriser une API Slim 4 avec JWT | 4 h | Starter local, middleware à compléter, recette HTTP et audit |
+
+Ce complément fait suite au support **Sécuriser une API REST : JWT et authentification**. Il distingue la connexion, la signature du JWT, l'authentification des requêtes et les autorisations portant sur une ressource. Les tests sont indépendants du lanceur global `php bin/test.php` : ils nécessitent un serveur local actif. Suivre les instructions du dossier 26.
+
 ## Démarrage rapide
+
 
 Vérifiez d'abord l'installation de PHP :
 
