@@ -1,0 +1,60 @@
+name: Atelier 26 - test de demarrage JWT
+
+on:
+  push:
+    paths:
+      - 'exercices/26-authentification-jwt-slim/**'
+      - '.github/workflows/atelier26-smoke.yml'
+  pull_request:
+    paths:
+      - 'exercices/26-authentification-jwt-slim/**'
+      - '.github/workflows/atelier26-smoke.yml'
+
+jobs:
+  starter:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Recuperer le depot
+        uses: actions/checkout@v4
+
+      - name: Installer PHP 8.3 et SQLite
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: pdo_sqlite
+          coverage: none
+
+      - name: Installer les dependances de l'atelier
+        working-directory: exercices/26-authentification-jwt-slim/starter
+        run: composer install --no-interaction --prefer-dist --no-progress
+
+      - name: Initialiser les comptes et notes de demonstration
+        working-directory: exercices/26-authentification-jwt-slim/starter
+        run: php bin/init-db.php
+
+      - name: Verifier la route publique et le refus des routes inachevees
+        working-directory: exercices/26-authentification-jwt-slim/starter
+        env:
+          JWT_SECRET: 'cle-technique-ci-non-productive-d-au-moins-32-caracteres'
+        run: |
+          php -S 127.0.0.1:8000 -t public > /tmp/atelier26-http.log 2>&1 &
+          serveur=$!
+          trap 'kill "$serveur" 2>/dev/null || true' EXIT
+          sleep 2
+
+          code=$(curl -sS -o /tmp/atelier26-public.json -w '%{http_code}' http://127.0.0.1:8000/api/etat)
+          test "$code" = "200"
+          grep -q '"statut":"ok"' /tmp/atelier26-public.json
+
+          code=$(curl -sS -o /tmp/atelier26-profil.json -w '%{http_code}' http://127.0.0.1:8000/api/profil)
+          test "$code" = "501"
+          grep -q 'NON_IMPLEMENTE' /tmp/atelier26-profil.json
+
+          code=$(curl -sS -o /tmp/atelier26-login.json -w '%{http_code}' \
+            -H 'Content-Type: application/json' \
+            -d '{"email":"alice@example.test","mot_de_passe":"BtsJwt2026!"}' \
+            http://127.0.0.1:8000/api/login)
+          test "$code" = "501"
+          grep -q 'NON_IMPLEMENTE' /tmp/atelier26-login.json
+
+          echo "Starter initialisable, route publique operationnelle et points incomplets refuses."
